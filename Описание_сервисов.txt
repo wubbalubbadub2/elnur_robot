@@ -1,0 +1,389 @@
+Справочник кодов и значения статусов для робота.
+ready					Готов к отправке
+sended					Отправлено
+templ_agreed		Шаблон согласован
+translated				Переведено ;-- новое название.
+protocol_ready		Протокол готов
+completed				Завершен
+send_registry		Отправить в реестр
+submit_registry		Отправлено в реестр
+
+Authorization:Basic cm9ib3Q6cm9ib3RfMTIz
+
+Вызов сервиса, получения списка заявок.
+GET: http://pcs.ipcs.kz:60081/restapi/services/run/getReqInfo
+queryParams:
+	id - ИД заяви - В запрос надо передать либо id либо status
+	status - Поиск заявок по статусу, если указан ИД заявки, то пропускается поиск заявок по статусу. В запрос надо передать либо id либо status
+	perPage - количество записей для поиска
+	
+Header:
+	Cookie - В куки передается сессия пользователя для авторизации.
+	
+Пример вызова:	
+curl --location --request GET 'http://pcs.ipcs.kz:60081/restapi/services/run/getReqInfo?id=77858&status=new&perPage=10' \
+--header 'Cookie: CRMSessionId=MTY0NzM0Mzk4NnxEdi1CQkFFQ180SUFBUkFCRUFBQV84al9nZ0FGQm5OMGNtbHVad3dHQUFSc1lXNW5Cbk4wY21sdVp3d0VBQUp5ZFFaemRISnBibWNNQ1FBSGRYTmxjbDlwWkFWcGJuUTJOQVFFQVA2dW5nWnpkSEpwYm1jTUZnQVVZVzV2Ym5sdGIzVnpYM05sYzNOcGIyNWZhV1FHYzNSeWFXNW5EQ1lBSkdJelpqTTRNelV4TFRsak9EVXRORFV5WmkxaE1tUTRMV0V5TVRabU5EVTVOMll6TndaemRISnBibWNNQ0FBR2MzbHpkR1Z0Qm5OMGNtbHVad3dKQUFkaWNtOTNjMlZ5Qm5OMGNtbHVad3dGQUFOMWNta0djM1J5YVc1bkRBSUFBQT09fC26ko1U-yLOF4VthyJJgCuOm826QlHfB_BAiBTEthWK'
+
+Response:
+{
+    "items": [
+        {
+            "app_type_id": "Импортер",
+            "approve_docs": [
+                {
+                    "accr_date_from": "",
+                    "accr_num": "",
+                    "docs_approve_name": "Акт анализа производства",
+                    "labs_name": ""
+                },
+                {
+                    "accr_date_from": "",
+                    "accr_num": "",
+                    "docs_approve_name": "",
+                    "labs_name": ""
+                },
+                {
+                    "accr_date_from": "",
+                    "accr_num": "",
+                    "docs_approve_name": "",
+                    "labs_name": ""
+                }
+            ],
+            "based_on_date": "2022-01-31",
+            "based_on_id": "Устав",
+            "based_on_number": "23222",
+            "comm_names": [
+                {
+                    "comm_name": "проектор 220В"
+                },
+                {
+                    "comm_name": "проектор 1634, 220В"
+                }
+            ],
+            "confirm_country_id": "ЕАЭС",
+            "confirm_doc_type_id": "Сертификат соответствия ТР ЕАЭС",
+            "doc_date": "2020-12-23",
+            "doc_number": "23432343",
+            "elr_req_state": "Отказать",
+            "experts": [
+                {
+                    "expert_idn": "850730403076",
+                    "expert_role_id": "Эксперт-аудитор на оценку"
+                },
+                {
+                    "expert_idn": "850411402271",
+                    "expert_role_id": "Руководитель ОПС П - принятие решения по заявке"
+                }
+            ],
+            "iin": "673673383733",
+            "images_info": [
+                {
+                    "created_at": "2022-02-10 09:09:58",
+                    "type_title": "Фото"
+                }
+            ],
+            "is_in_list": "0",
+            "manufacturer_idn": "12812912828",
+            "manufacturer_name": "Ferrari",
+            "name1": "Иванов",
+            "name1_rp": "Иванова",
+            "name2": "Иван",
+            "name2_rp": "Ивана",
+            "name3": "Иванович",
+            "name3_rp": "Ивановича",
+            "norm_docs": [
+                {
+                    "doc_date": "2022-03-15",
+                    "elr_gost_id": "ГОСТ IEC 60335-1-2015",
+                    "gost_fullname": "ГОСТ IEC 60335-1-2015 \"Бытовые и аналогичные электрические приборы. Безопасность.Часть 1. Общие требования\""
+                },
+                {
+                    "doc_date": "2022-03-16",
+                    "elr_gost_id": "",
+                    "gost_fullname": ""
+                }
+            ],
+            "part_type_id": "Партия",
+            "position": "директор",
+            "position_rp": "директора",
+            "products": [
+                {
+                    "prod_additional_info": "йцукенгшщ",
+                    "title": "мультимедийные проекторы"
+                }
+            ],
+            "req_docs": [
+                {
+                    "doc_date": "2022-03-07",
+                    "doc_num": "123",
+                    "docs_from_app_id": "Инвойс"
+                }
+            ],
+            "reqs_id": "77858",
+            "resident": "1",
+            "scheme_id": "Схема декларирования 1д",
+            "ship_docs": [
+                {
+                    "doc_date": "2022-03-16",
+                    "doc_num": "111",
+                    "ship_docs_id": "Декларация на товары"
+                },
+                {
+                    "doc_date": "2022-03-17",
+                    "doc_num": "2222",
+                    "ship_docs_id": "Упаковочный лист"
+                }
+            ],
+            "solution_date_from": "2022-03-17",
+            "solution_date_to": "2022-06-17",
+            "solution_period": "3 месяца",
+            "tech_regs": [
+                {
+                    "tech_reg_id": "ТР ЕАЭС 037/2016 ",
+                    "tech_reg_name": "\"Об ограничении применения опасных веществ в изделиях электротехники и радиоэлектроники\"  принятого Решением Совета Евразийской экономической комиссии от 18 октября 2016 г. № 113"
+                }
+            ],
+            "tmma": [
+                {
+                    "part_size": "50",
+                    "tmma": "тип марка",
+                    "tmma_unit_id": "шт."
+                },
+                {
+                    "part_size": "10",
+                    "tmma": "тип марка 222",
+                    "tmma_unit_id": "шт."
+                }
+            ],
+            "tnveds": [
+                {
+                    "tn_ved_id": "8418102001"
+                }
+            ],
+            "unit_prods": [
+                {
+                    "additional_info": "",
+                    "amount": "100",
+                    "prod_date_from": "2022-02-01",
+                    "prod_date_to": "2029-12-18",
+                    "prod_num": "7777771",
+                    "prod_unit_id": "м",
+                    "title": "777 name"
+                },
+                {
+                    "additional_info": "",
+                    "amount": "2000",
+                    "prod_date_from": "",
+                    "prod_date_to": "",
+                    "prod_num": "888899",
+                    "prod_unit_id": "см",
+                    "title": "88 нейм"
+                }
+            ]
+        }
+    ]
+}
+
+РАСШИФРОВКА ПОЛЕЙ
+confirm_country_id - Документ подтверждения соответствия
+confirm_doc_type_id - Тип документа подтверждения соответсвия
+name1 - Фамилия
+name2 - Имя
+name3 - Отчество
+name1_rp -  Фамилия в Р.П.
+name2_rp - Имя в Р.П.
+name3_rp - Отчество в Р.П.
+resident - Резидент
+iin - ИИН
+doc_date - Дата выдачи удв. личности
+doc_number - Номер удв. личности
+position - Должность
+position_rp - Должность в Р.П.
+based_on_id - На основании
+based_on_number - Номер документа-основания
+based_on_date - Дата документа-основания 
+app_type_id - Тип заявителя
+is_in_list - Признак включения продукции в единый перечень продукции, подлежащий обязательному подтверждению соответствия с выдачей сертификатов соответствия и деклараций о соответствии по единой форме
+part_type_id - Вид объекта технического регулирования
+scheme_id - Схема
+manufacturer_idn - ИИН/БИН производителя
+manufacturer_name - Наименование
+elr_req_state - Состояние заявки			на вкладке Дополнительная информация
+solution_period - Рассчитать дату окончания срока действия исходя из условия
+solution_date_from - Дата начала действия
+solution_date_to -Дата окончания действия
+reqs_id - ИД Заявки
+
+req_docs - Документы, представленные заявителем
+	doc_date - Дата документа
+	doc_num - Номер документа
+	docs_from_app_id - Наименование
+	
+ship_docs - Товаросопроводительная документация
+	doc_date - Дата документа
+	doc_num - Номер документа
+	ship_docs_id - Наименование
+
+tech_regs - Технический регламент, на соответствие требованиям которого проводится оценка соответствия
+	tech_reg_id - ТР ТС
+	tech_reg_name - Наименование
+
+norm_docsс - Нормативный документ, на соответствие требованиям которого проводится оценка соответствия             или         Стандарт или иной документ, в результате которого обеспечивается соблюдение требований	
+	doc_date - Дата
+	elr_gost_id -  ГОСТ
+	gost_fullname - Наименование
+	
+approve_docs - Документ, представленный в качестве доказательства соответствия обязательным требованиям или документ, на основании которого принято решение
+	"accr_date_from" - Дата документа
+	"accr_num" - Номер документа
+	"docs_approve_name" - Наименование
+	"labs_name" - Выдан
+	
+images_info - Рисунки и графические объекты, распечатываемые в приложении (только для сертификации ЕАЭС)
+	created_at - 
+	type_title - 
+
+products - Продукция
+	prod_additional_info - Дополнительные сведения о продукте
+	title - Наименование продукта
+
+comm_names - Коммерческое название
+	comm_name - Коммерческое название
+
+tmma - Тип, марка, модель, артикул
+	part_size - Размер партии
+	tmma - Тип, марка, модель, артикул
+	tmma_unit_id - Код единицы измерения
+	
+unit_prods - Единица продукции или группа одинаковых единиц продукции
+	amount - Количество
+	prod_date_from - Дата изготовления
+	prod_date_to - Срок годности
+	prod_num - 	Заводской номер единичного изделия или обозначение у группы одинаковых единиц продукции
+	prod_unit_id - Код единицы измерения
+	title - Наименование группы одинаковых единиц продукции
+	
+tnveds - ТН ВЭД
+	tn_ved_id - Код ТН ВЭД
+
+experts - Ответственные лица во вкладке ОРГАН, ПОДТВЕРЖДАЮЩИЙ СООТВЕТСВИЯ
+	expert_idn - ИИН
+	expert_role_id - Должность
+
+	
+
+	
+
+	
+2. Сервис обновления статуса заявок.
+POST: http://pcs.ipcs.kz:60081/restapi/services/run/setReqStatus
+
+Header:
+	Cookie - В куки передается сессия пользователя для авторизации.
+
+Body:
+{
+    "reqId": 77858,
+    "code": "sended"
+}
+
+Пример вызова:
+curl --location --request POST 'http://pcs.ipcs.kz:60081/restapi/services/run/setReqStatus' \
+--header 'Cookie: CRMSessionId=MTY0NzM0Mzk4NnxEdi1CQkFFQ180SUFBUkFCRUFBQV84al9nZ0FGQm5OMGNtbHVad3dHQUFSc1lXNW5Cbk4wY21sdVp3d0VBQUp5ZFFaemRISnBibWNNQ1FBSGRYTmxjbDlwWkFWcGJuUTJOQVFFQVA2dW5nWnpkSEpwYm1jTUZnQVVZVzV2Ym5sdGIzVnpYM05sYzNOcGIyNWZhV1FHYzNSeWFXNW5EQ1lBSkdJelpqTTRNelV4TFRsak9EVXRORFV5WmkxaE1tUTRMV0V5TVRabU5EVTVOMll6TndaemRISnBibWNNQ0FBR2MzbHpkR1Z0Qm5OMGNtbHVad3dKQUFkaWNtOTNjMlZ5Qm5OMGNtbHVad3dGQUFOMWNta0djM1J5YVc1bkRBSUFBQT09fC26ko1U-yLOF4VthyJJgCuOm826QlHfB_BAiBTEthWK' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "reqId": 77858,
+    "code": "sended"
+}'
+
+Response:
+{
+    "output": {
+        "reqId": 77858,
+        "resultMessage": "Ok",
+        "statusCode": "sended",
+        "statusId": "4"
+    },
+    "resultText": "Service Ok",
+    "resultCode": "0",
+    "hasError": false
+}
+
+При успешном изменении статуса output.resultMessage="Ok"
+
+curl --location --request POST 'http://ipcs.kz:60180/restapi/services/run/printData?id=78173' \
+--header 'Authorization: Basic cm9ib3Q6cm9ib3RfMTIz' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: CRMSessionId=MTY1NDA4NzAwMHxEdi1CQkFFQ180SUFBUkFCRUFBQVV2LUNBQUVHYzNSeWFXNW5EQllBRkdGdWIyNTViVzkxYzE5elpYTnphVzl1WDJsa0JuTjBjbWx1Wnd3bUFDUXlNVGM1WVRBME5DMDNZV00zTFRRek0yWXRZakU1T0MwNFlqRmtaakV5T1RjeU1qST18UAQnWR9zEyFtn2dRMaWnsm6hQO0CFd_0nzkRH8LC4gE=' \
+--data-raw '[
+    {
+        "product_ru":"product ru 1",
+        "product_kz":"product kz 1",
+        "tnved_ru":"tvned ru 1",
+        "tnved_kz":"tnved kz 1",
+        "descr_ru":"descr ru 1",
+        "descr_kz":"descr kz 1"
+    },
+    {
+        "product_ru":"product ru 2",
+        "product_kz":"product kz 2",
+        "tnved_ru":"tvned ru 2",
+        "tnved_kz":"tnved kz 2",
+        "descr_ru":"descr ru 2",
+        "descr_kz":"descr kz 2"
+    }
+]'
+
+
+Переписал сервис printData, залил на тестовую среду.
+1. Если в заявке отсутствует запись с номером из поля row - то данные инсертится
+2. Если имеется апдейтится значение полей rowRuValue и rowKzValue
+
+curl --location --request POST 'http://ipcs.kz:60180/restapi/services/run/printData?id=78180' \
+--header 'Authorization: Basic cm9ib3Q6cm9ib3RfMTIz' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: CRMSessionId=MTY1NDA4NzAwMHxEdi1CQkFFQ180SUFBUkFCRUFBQVV2LUNBQUVHYzNSeWFXNW5EQllBRkdGdWIyNTViVzkxYzE5elpYTnphVzl1WDJsa0JuTjBjbWx1Wnd3bUFDUXlNVGM1WVRBME5DMDNZV00zTFRRek0yWXRZakU1T0MwNFlqRmtaakV5T1RjeU1qST18UAQnWR9zEyFtn2dRMaWnsm6hQO0CFd_0nzkRH8LC4gE=' \
+--data-raw '[
+    {
+        "row":"1",
+        "rowName":"Заявитель",
+        "rowRuValue":"Заявитель ru 1",
+        "rowKzValue":"Заявитель kz 2"
+    },
+    {
+        "row":"3",
+        "rowName":"Декларант",
+        "rowRuValue":"Декларант ru 1",
+        "rowKzValue":"Декларант kz 2"
+    },
+    {
+        "row":"2",
+        "rowName":"Изготовитель",
+        "rowRuValue":"Изготовитель ru 1",
+        "rowKzValue":"Изготовитель kz 2"
+    },
+    {
+        "row":"4",
+        "rowName":"Отгрузочные документы",
+        "rowRuValue":"Отгрузочные документы ru 1",
+        "rowKzValue":"Отгрузочные документы kz 2"
+    },
+    {
+        "row":"5",
+        "rowName":"Продукция",
+        "rowRuValue":"Продукция ru 2",
+        "rowKzValue":"Продукция kz 2"
+    },
+    {
+        "row":"6",
+        "rowName":"Код ТН ВЭД",
+        "rowRuValue":"Код ТН ВЭД ru 3",
+        "rowKzValue":"Код ТН ВЭД kz 3"
+    },
+    {
+        "row":"7",
+        "rowName":"Соответствует требованиям",
+        "rowRuValue":"Соответствует требованиям 2",
+        "rowKzValue":"Соответствует требованиям kz 2"
+    }
+]'

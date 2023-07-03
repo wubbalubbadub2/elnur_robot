@@ -1,0 +1,58 @@
+Стандартный сервис СРМ для вложения доков.
+Content-Type = multipart/form-data
+
+curl --location --request POST 'http://pcs.ipcs.kz:60081/restapi/upload' \
+--form 'file=@"/home/alabs/Загрузки/Telegram Desktop/Заявление_на_частичное_досрочное_погашение_займа.pdf"' \
+--form 'dir="DOCS"'
+
+Response:
+{
+    "guid": "DOCS-f41ecee0-0070-4f4e-a5cc-2fcc9ec8d56f",
+    "url": "http://pcs.ipcs.kz:60081/restapi/getfile?code=DOCS-f41ecee0-0070-4f4e-a5cc-2fcc9ec8d56f",
+    "id": 56876,
+    "result": "ok",
+    "filename": "",
+    "restServiceOutput": ""
+}
+
+Полученное значение guid нужно передать в сервис setReqStatus. Добавили 2 новых поля.
+1. regNum - Номер, который сформирован в Е-Окне.
+2. fileGuid - guid полученный после вызова сервиса вложения доков.
+
+2. Сервис обновления статуса заявок.
+POST: http://pcs.ipcs.kz:60081/restapi/services/run/setReqStatus
+
+Header:
+	Cookie - В куки передается сессия пользователя для авторизации.
+
+Body:
+{
+    "reqId": 77858,
+    "code": "sended"
+	"regNum": "e-oknoNo1",
+    "fileGuid": "DOCS-f41ecee0-0070-4f4e-a5cc-2fcc9ec8d56f"
+}
+
+Пример вызова:
+curl --location --request POST 'http://pcs.ipcs.kz:60081/restapi/services/run/setReqStatus' \
+--header 'Cookie: CRMSessionId=MTY0NzM0Mzk4NnxEdi1CQkFFQ180SUFBUkFCRUFBQV84al9nZ0FGQm5OMGNtbHVad3dHQUFSc1lXNW5Cbk4wY21sdVp3d0VBQUp5ZFFaemRISnBibWNNQ1FBSGRYTmxjbDlwWkFWcGJuUTJOQVFFQVA2dW5nWnpkSEpwYm1jTUZnQVVZVzV2Ym5sdGIzVnpYM05sYzNOcGIyNWZhV1FHYzNSeWFXNW5EQ1lBSkdJelpqTTRNelV4TFRsak9EVXRORFV5WmkxaE1tUTRMV0V5TVRabU5EVTVOMll6TndaemRISnBibWNNQ0FBR2MzbHpkR1Z0Qm5OMGNtbHVad3dKQUFkaWNtOTNjMlZ5Qm5OMGNtbHVad3dGQUFOMWNta0djM1J5YVc1bkRBSUFBQT09fC26ko1U-yLOF4VthyJJgCuOm826QlHfB_BAiBTEthWK' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "reqId": 77858,
+    "code": "sended"
+	"regNum": "e-oknoNo1",
+    "fileGuid": "DOCS-f41ecee0-0070-4f4e-a5cc-2fcc9ec8d56f"
+}'
+
+Response:
+{
+    "output": {
+        "reqId": 77858,
+        "resultMessage": "Ok",
+        "statusCode": "sended",
+        "statusId": "4"
+    },
+    "resultText": "Service Ok",
+    "resultCode": "0",
+    "hasError": false
+}
